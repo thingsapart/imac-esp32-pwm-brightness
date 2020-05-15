@@ -1,0 +1,29 @@
+PODS:
+  - MediaKeyTap (3.1.0)
+  - ORSSerialPort (2.1)
+
+DEPENDENCIES:
+  - MediaKeyTap (from `https://github.com/the0neyouseek/MediaKeyTap.git`, branch `master`)
+  - ORSSerialPort
+
+SPEC REPOS:
+  trunk:
+    - ORSSerialPort
+
+EXTERNAL SOURCES:
+  MediaKeyTap:
+    :branch: master
+    :git: https://github.com/the0neyouseek/MediaKeyTap.git
+
+CHECKOUT OPTIONS:
+  MediaKeyTap:
+    :commit: 4314a361486c2907956756748939c61f460241bd
+    :git: https://github.com/the0neyouseek/MediaKeyTap.git
+
+SPEC CHECKSUMS:
+  MediaKeyTap: 97c65cfd7c0f56b0db2c9e2c095a88a2347d94e7
+  ORSSerialPort: d2d5d131797453430c557ba8dc7dcbcae20ff2e5
+
+PODFILE CHECKSUM: 4ec11a252a43c33738906c416f47b70c51347a77
+
+COCOAPODS: 1.9.1

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="16096" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16096"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="AppDelegate" customModule="imac_esp32_pwm_brightness" customModuleProvider="target">
+            <connections>
+                <outlet property="BrightnessSlider" destination="Ddf-67-f4P" id="yu1-WQ-FgW"/>
+                <outlet property="ConnectionIndicator" destination="eL0-Gh-7aV" id="kyh-bq-znG"/>
+                <outlet property="SerialBaudCombo" destination="HUK-BT-ALz" id="kwe-Yk-3wx"/>
+                <outlet property="SerialPortCombo" destination="kga-eU-NkU" id="aFv-IR-s8P"/>
+                <outlet property="SettingsButton" destination="RtB-iw-uIs" id="vnM-q3-IPa"/>
+                <outlet property="SettingsWindow" destination="UD0-NC-s3O" id="Asz-wV-g7s"/>
+                <outlet property="menuView" destination="3R9-22-a7D" id="PxZ-YD-qFz"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="imac_esp32_pwm_brightness" customModuleProvider="target">
+            <connections>
+                <outlet property="BrightnessSlider" destination="Ddf-67-f4P" id="zYR-JG-tId"/>
+                <outlet property="SettingsButton" destination="RtB-iw-uIs" id="PP9-h1-lz6"/>
+                <outlet property="menuView" destination="3R9-22-a7D" id="JbB-ih-Y66"/>
+            </connections>
+        </customObject>
+        <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
+        <menu id="3R9-22-a7D">
+            <point key="canvasLocation" x="-95" y="175"/>
+        </menu>
+        <button verticalHuggingPriority="750" id="RtB-iw-uIs">
+            <rect key="frame" x="0.0" y="0.0" width="44" height="42"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <gestureRecognizers>
+                <clickGestureRecognizer delaysPrimaryMouseButtonEvents="YES" numberOfClicksRequired="1" id="8Gk-nD-0ey">
+                    <connections>
+                        <action selector="openSettings:" target="Voe-Tx-rLC" id="5lu-1A-7Xj"/>
+                    </connections>
+                </clickGestureRecognizer>
+            </gestureRecognizers>
+            <buttonCell key="cell" type="bevel" bezelStyle="circular" image="NSActionTemplate" imagePosition="only" inset="2" id="G9C-5Z-WqH">
+                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                <font key="font" metaFont="system"/>
+            </buttonCell>
+            <point key="canvasLocation" x="-482" y="-1"/>
+        </button>
+        <button verticalHuggingPriority="750" id="eL0-Gh-7aV">
+            <rect key="frame" x="0.0" y="0.0" width="44" height="42"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <buttonCell key="cell" type="bevel" bezelStyle="circular" image="NSStatusUnavailable" imagePosition="only" inset="2" id="35g-VY-ilU">
+                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                <font key="font" metaFont="system"/>
+            </buttonCell>
+            <point key="canvasLocation" x="-482" y="-1"/>
+        </button>
+        <slider horizontalHuggingPriority="750" id="Ddf-67-f4P">
+            <rect key="frame" x="0.0" y="0.0" width="23" height="120"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <sliderCell key="cell" continuous="YES" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="right" sliderType="linear" id="KZj-zw-nSh"/>
+            <connections>
+                <action selector="sliderChange:" target="-2" id="iuV-3l-1UT"/>
+            </connections>
+            <point key="canvasLocation" x="-481.5" y="-149.5"/>
+        </slider>
+        <window title="Settings" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="UD0-NC-s3O" userLabel="Settings">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" fullSizeContentView="YES"/>
+            <rect key="contentRect" x="196" y="240" width="480" height="249"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1177"/>
+            <view key="contentView" id="O1v-85-xDS">
+                <rect key="frame" x="0.0" y="0.0" width="480" height="249"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BeX-GZ-yv5">
+                        <rect key="frame" x="18" y="135" width="118" height="16"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" title="ESP32 Serial Port" id="9Mg-z8-xOh">
+                            <font key="font" usesAppearanceFont="YES"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kga-eU-NkU">
+                        <rect key="frame" x="189" y="129" width="274" height="25"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" usesDataSource="YES" numberOfVisibleItems="5" id="pBl-xq-bLc">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </comboBoxCell>
+                        <connections>
+                            <outlet property="dataSource" destination="-2" id="lNP-yJ-zyD"/>
+                            <outlet property="delegate" destination="-2" id="sRr-fW-FY9"/>
+                        </connections>
+                    </comboBox>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1vV-t8-6By">
+                        <rect key="frame" x="18" y="110" width="118" height="16"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" title="Serial Baud Rate" id="uRf-MI-Pmu">
+                            <font key="font" usesAppearanceFont="YES"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HUK-BT-ALz">
+                        <rect key="frame" x="189" y="104" width="274" height="25"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" title="115200" drawsBackground="YES" completes="NO" numberOfVisibleItems="8" id="l1V-11-ah3">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            <objectValues>
+                                <string>9600</string>
+                                <string>14400</string>
+                                <string>19200</string>
+                                <string>38400</string>
+                                <string>57600</string>
+                                <string>115200</string>
+                                <string>128000</string>
+                                <string>256000</string>
+                            </objectValues>
+                        </comboBoxCell>
+                        <connections>
+                            <outlet property="delegate" destination="-2" id="fLx-LH-hl6"/>
+                        </connections>
+                    </comboBox>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Png-CP-v5D">
+                        <rect key="frame" x="31" y="13" width="72" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Done" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="7bR-G1-yzR">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                        </buttonCell>
+                        <connections>
+                            <action selector="CloseSettings:" target="-2" id="bst-iS-7dx"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GMo-JS-cef">
+                        <rect key="frame" x="383" y="13" width="66" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Quit" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="wOI-uh-vYT">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="QuitApp:" target="Voe-Tx-rLC" id="nRN-ea-aHe"/>
+                        </connections>
+                    </button>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c9b-ND-5xP">
+                        <rect key="frame" x="18" y="172" width="456" height="46"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" title="Make sure to install the correct SiLabs ESP32 USB VCP drivers and that the device is properly connected." id="apt-MG-iPy">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rby-UX-0gV">
+                        <rect key="frame" x="72" y="56" width="349" height="16"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" title="Based on https://github.com/passatgt/imac-pwm-control" id="Whm-Hj-U3P">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                </subviews>
+            </view>
+            <connections>
+                <outlet property="delegate" destination="-2" id="liO-6Y-OOW"/>
+                <outlet property="menu" destination="3R9-22-a7D" id="z8i-Yd-K9k"/>
+            </connections>
+            <point key="canvasLocation" x="-143" y="204.5"/>
+        </window>
+    </objects>
+    <resources>
+        <image name="NSActionTemplate" width="14" height="14"/>
+        <image name="NSStatusUnavailable" width="16" height="16"/>
+    </resources>
+</document>

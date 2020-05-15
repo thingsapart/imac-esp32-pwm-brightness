@@ -1,0 +1,6 @@
+framework module Pods_imac_esp32_pwm_brightness {
+  umbrella header "Pods-imac-esp32-pwm-brightness-umbrella.h"
+
+  export *
+  module * { export * }
+}

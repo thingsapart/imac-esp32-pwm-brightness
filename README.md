@@ -1,6 +1,6 @@
 # iMac ESP32 PWM Control
 
-The MacOS portion of this software is based on https://github.com/passatgt/imac-pwm-control and has been rewritten to communicate via USB-serial with am ESP32 microcontroller hooked up to your iMac.
+The MacOS portion of this software is based on https://github.com/passatgt/imac-pwm-control and has been rewritten to communicate via USB-serial with an ESP32 microcontroller hooked up to your iMac.
 
 # Why?
 
